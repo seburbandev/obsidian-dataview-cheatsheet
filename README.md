@@ -8,6 +8,7 @@ As I found myself frequently querying data within Obsidian, I created this cheat
 
 While this cheatsheet is primarily for my own use, I'm sharing it here in case others find it useful as well. I would suggest you copy this readme and paste it in your Obsidian vault so you can search it locally just like I do.
 
+
 # Query Cheatsheet
 
 Examples for very specific queries.
