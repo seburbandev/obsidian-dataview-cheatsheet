@@ -58,9 +58,9 @@ Example
 
 ```js
 TABLE
-	file.cday as "Created Date"
+file.cday as "Created Date"
 FROM
-	#my-tag
+#my-tag
 ```
 
 #### Excluding notes with a specific tag
