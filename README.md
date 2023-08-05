@@ -63,6 +63,24 @@ FROM
 	#my-tag
 ```
 
+#### Excluding notes with a specific tag
+
+`!#tag-name`
+
+Example
+
+```js
+TABLE
+	Title,
+	Rating,
+	Seen,
+	SeenDate as "Seen on"
+FROM
+	#movie AND !#template
+```
+
+The above example will return all notes with a tag `#movie` but exclude notes with a tag `#template`. This is handy if you have a note with pre-populated tags but it's only used as a template so you don't want to see it in your table view.
+
 ### Folders
 
 `FROM "folder-name"`
