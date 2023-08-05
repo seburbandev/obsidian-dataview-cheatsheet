@@ -81,6 +81,24 @@ FROM
 
 The above example will return all notes with a tag `#movie` but exclude notes with a tag `#template`. This is handy if you have a note with pre-populated tags but it's only used as a template so you don't want to see it in your table view.
 
+#### Excluding notes from a specific folder
+
+`FROM #tag AND !"FolderName"`
+
+Example
+
+```js
+TABLE
+	Title,
+	Rating,
+	Seen,
+	SeenDate as "Seen on"
+FROM
+	#movie AND !"TemplatesFolder"
+```
+
+By including `!"FolderName"` we specify that we do not want to return any matches if the are located in the specified folder.
+
 ### Folders
 
 `FROM "folder-name"`
