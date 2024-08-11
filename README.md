@@ -2,16 +2,36 @@
 
 This cheatsheet provides a handy reference guide for writing queries using **Dataview Query Language** (**DQL**) in the [dataview](https://github.com/blacksmithgu/obsidian-dataview) plugin for [Obsidian.md](https://obsidian.md) note-taking app.
 
-# How this repository came about
+# Why this repository was created
 
 As I found myself frequently querying data within Obsidian, I created this cheatsheet to have quick access to the most common queries I use regularly. By adding this cheatsheet locally in Obsidian, I no longer need to leave Obsidian app and search the query syntax online.
 
 While this cheatsheet is primarily for my own use, I'm sharing it here in case others find it useful as well. I would suggest you copy this readme and paste it in your Obsidian vault so you can search it locally just like I do.
 
+# Table of Contents
+
+- [LIST](#list)
+  - [Simple List](#simple-list)
+  - [Table](#table)
+- [Data Commands](#data-commands)
+  - [FROM](#from)
+    - [Tags](#tags)
+    - [Excluding notes with a specific tag](#excluding-notes-with-a-specific-tag)
+    - [Excluding notes from a specific folder](#excluding-notes-from-a-specific-folder)
+    - [Folders](#folders)
+    - [Single Files](#single-files)
+  - [WHERE](#where)
+    - [WHERE property is NOT empty](#where-property-is-not-empty)
+  - [FLATTEN](#flatten)
+    - [Multiple properties displayed in its own row](#multiple-properties-displayed-in-its-own-row)
+  - [Bool property to custom display value](#bool-property-to-custom-display-value)
+    - [Display Yes/No instead of True/False on bool properties](#display-yesno-instead-of-truefalse-on-bool-properties)
+  - [Limit results in query](#limit-results-in-query)
+- [Meta Data Examples](#meta-data-examples)
+  - [JSON](#json)
+  - [YAML](#yaml)
 
 # Query Cheatsheet
-
-Examples for very specific queries.
 
 # LIST
 
@@ -51,7 +71,7 @@ FROM
 
 Selecting from different sources such as;
 
-### Tags
+## Tags
 
 `FROM #tag`
 
@@ -64,7 +84,7 @@ FROM
   #my-tag
 ```
 
-#### Excluding notes with a specific tag
+## Excluding notes with a specific tag
 
 `!#tag-name`
 
@@ -82,7 +102,7 @@ FROM
 
 The above example will return all notes with a tag `#movie` but exclude notes with a tag `#template`. This is handy if you have a note with pre-populated tags but it's only used as a template so you don't want to see it in your table view.
 
-#### Excluding notes from a specific folder
+## Excluding notes from a specific folder
 
 `FROM #tag AND !"FolderName"`
 
@@ -100,7 +120,7 @@ FROM
 
 By including `!"FolderName"` we specify that we do not want to return any matches if the are located in the specified folder.
 
-### Folders
+## Folders
 
 `FROM "folder-name"`
 
@@ -113,7 +133,7 @@ FROM
   "my-folder-name"
 ```
 
-### Single Files
+## Single Files
 
 `FROM "path/to/file-name"`
 
@@ -152,9 +172,9 @@ WHERE
 
 The above example ensures to show only results where the meta-data 'Category' is not empty.
 
-## FLATTEN
+# FLATTEN
 
-### Multiple properties displayed in its own row
+## Multiple properties displayed in its own row
 
 ```js
 FLATTEN <property-name>
@@ -219,25 +239,25 @@ LIMIT 10
 
 Obsidian allows YAML and JSON for metadata.
 
-### JSON
+## JSON
 
 JSON
 
 ```
 {
-	"Author": "Author Name",
-	"Genre": "Fiction",
-	"DateRead": "2022-06-01",
-	"Read": false,
-	"Tags": [
-		"Mind-blowing",
-		"Interesting",
-		"Science"
-	]
+  "Author": "Author Name",
+  "Genre": "Fiction",
+  "DateRead": "2022-06-01",
+  "Read": false,
+  "Tags": [
+    "Mind-blowing",
+    "Interesting",
+    "Science"
+  ]
 }
 ```
 
-### YAML
+## YAML
 
 YAML
 
