@@ -33,9 +33,9 @@ FROM
 
 ```js
 TABLE
-	Title
+  Title
 FROM
-	#tagName
+  #tagName
 ```
 
 # Data Commands
@@ -59,9 +59,9 @@ Example
 
 ```js
 TABLE
-file.cday as "Created Date"
+  file.cday as "Created Date"
 FROM
-#my-tag
+  #my-tag
 ```
 
 #### Excluding notes with a specific tag
@@ -72,12 +72,12 @@ Example
 
 ```js
 TABLE
-	Title,
-	Rating,
-	Seen,
-	SeenDate as "Seen on"
+  Title,
+  Rating,
+  Seen,
+  SeenDate as "Seen on"
 FROM
-	#movie AND !#template
+  #movie AND !#template
 ```
 
 The above example will return all notes with a tag `#movie` but exclude notes with a tag `#template`. This is handy if you have a note with pre-populated tags but it's only used as a template so you don't want to see it in your table view.
@@ -90,12 +90,12 @@ Example
 
 ```js
 TABLE
-	Title,
-	Rating,
-	Seen,
-	SeenDate as "Seen on"
+  Title,
+  Rating,
+  Seen,
+  SeenDate as "Seen on"
 FROM
-	#movie AND !"TemplatesFolder"
+  #movie AND !"TemplatesFolder"
 ```
 
 By including `!"FolderName"` we specify that we do not want to return any matches if the are located in the specified folder.
@@ -108,9 +108,9 @@ Example
 
 ```js
 TABLE
-	file.cday as "Created Date"
+  file.cday as "Created Date"
 FROM
-	"my-folder-name"
+  "my-folder-name"
 ```
 
 ### Single Files
@@ -121,9 +121,9 @@ Example
 
 ```js
 TABLE
-	file.cday as "Created Date"
+  file.cday as "Created Date"
 FROM
-	"TopFolder/SubFolder/my-file-name"
+  "TopFolder/SubFolder/my-file-name"
 ```
 
 ## WHERE
@@ -140,14 +140,14 @@ Example
 
 ```sql
 TABLE
-	file.cday as "Created",
-	Category
+  file.cday as "Created",
+  Category
 FROM
-	#books
+  #books
 SORT
-	file.cday
+  file.cday
 WHERE
-	Category
+  Category
 ```
 
 The above example ensures to show only results where the meta-data 'Category' is not empty.
@@ -164,8 +164,8 @@ Code example:
 
 ```js
 TABLE
-	Title,
-	Action
+  Title,
+  Action
 FLATTEN Action
 ```
 
@@ -192,10 +192,10 @@ Example
 
 ```sql
 TABLE
-	Author as "Author",
-	choice(read, "Yes", "No") as "Read",
+  Author as "Author",
+  choice(read, "Yes", "No") as "Read",
 FROM
-	"Books"
+  "Books"
 ```
 
 # Limit results in query
@@ -208,10 +208,10 @@ Example:
 
 ```js
 TABLE
-	Title,
-	Rating
+  Title,
+  Rating
 WHERE
-	Rating > 3
+  Rating > 3
 LIMIT 10
 ```
 
