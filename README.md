@@ -2,6 +2,11 @@
 
 This cheatsheet provides a handy reference guide for writing queries using **Dataview Query Language** (**DQL**) in the [dataview](https://github.com/blacksmithgu/obsidian-dataview) plugin for [Obsidian.md](https://obsidian.md) note-taking app.
 
+# How to use this
+
+Use it however you like but I would suggest you copy this file and simply paste it into your own Obsidian vault. You can then reference this from within your own vault by either accessing the file or searching in your vault for specific command.
+
+ Star and follow this repository if you want to be updated when I add more examples to this list.
 
 # Table of Contents
 
