@@ -22,6 +22,9 @@ While this cheatsheet is primarily for my own use, I'm sharing it here in case o
     - [Single Files](#single-files)
   - [WHERE](#where)
     - [WHERE property is NOT empty](#where-property-is-not-empty)
+    - [WHERE property is equal to something](#where-property-is-equal-to-something)
+  - [GROUP BY](#group-by)
+    - [GROUP BY category](#group-by-category)
   - [FLATTEN](#flatten)
     - [Multiple properties displayed in its own row](#multiple-properties-displayed-in-its-own-row)
   - [Bool property to custom display value](#bool-property-to-custom-display-value)
@@ -146,6 +149,33 @@ FROM
   "TopFolder/SubFolder/my-file-name"
 ```
 
+## GROUP BY
+
+### GROUP BY category
+
+```js
+GROUP BY <property-name>
+```
+
+Examples
+
+```sql
+TABLE 
+rows.file.name as "File"
+WHERE category
+GROUP BY  category
+```
+
+```sql
+LIST
+rows.file.name
+WHERE
+category = "first-category"
+GROUP BY category
+```
+
+NOTE: When using group by, the structure of the results changes. Instead of directly accessing `file.name`, you must use the `rows` property to access the file properties within each group. This is because results are now grouped into rows based on the group by field.
+
 ## WHERE
 
 Examples of queries containing WHERE clause.
@@ -171,6 +201,30 @@ WHERE
 ```
 
 The above example ensures to show only results where the meta-data 'Category' is not empty.
+
+### WHERE property is equal to something
+
+```js
+WHERE <string-property-name> = "my-value"
+```
+
+```js
+WHERE <digit-property-name> = 123
+```
+
+Examples
+
+```sql
+LIST
+WHERE
+Category = "my-value"
+```
+
+```sql
+LIST
+WHERE
+DigitProperty = 123
+```
 
 # FLATTEN
 
