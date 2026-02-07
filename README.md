@@ -2,17 +2,17 @@
 
 [![Trajecta](https://img.shields.io/badge/Sponsored%20by-Trajecta-blue?style=flat-square)](https://trajecta.app)
 
-This cheatsheet provides a handy reference guide for writing queries using 
-**Dataview Query Language** (**DQL**) in the [dataview][dataview] plugin for 
+This cheatsheet provides a handy reference guide for writing queries using
+**Dataview Query Language** (**DQL**) in the [dataview][dataview] plugin for
 [Obsidian.md][obsidian] note-taking app.
 
 # How to use this
 
-I recommend copying this file and including it in your Obsidian vault for easy 
-reference. In this way, you can access the cheatsheet by pulling up the file 
+I recommend copying this file and including it in your Obsidian vault for easy
+reference. In this way, you can access the cheatsheet by pulling up the file
 or searching in your vault for a specific command.
 
-Star and fork this repository to see updates and pull them when more examples 
+Star and fork this repository to see updates and pull them when more examples
 are added or the list of commands is expanded.
 
 # Table of Contents
@@ -146,9 +146,9 @@ FROM
   #movie AND !#template
 ```
 
-The above example will return all notes with a tag `#movie` but exclude notes 
-with a tag `#template`. This is handy if you have a note with pre-populated 
-tags but it's only used as a template so you don't want to see it in your 
+The above example will return all notes with a tag `#movie` but exclude notes
+with a tag `#template`. This is handy if you have a note with pre-populated
+tags but it's only used as a template so you don't want to see it in your
 table view.
 
 #### Excluding notes from a specific folder
@@ -167,7 +167,7 @@ FROM
   #movie AND !"TemplatesFolder"
 ```
 
-By including `!"FolderName"` we specify that we do not want to return any 
+By including `!"FolderName"` we specify that we do not want to return any
 matches if the are located in the specified folder.
 
 ### Chaining Resources
@@ -277,7 +277,7 @@ WHERE
 [Back to Contents](#table-of-contents)
 
 ## SORT
-Dataview offers simple ways to sort results. The most simplistic is by some 
+Dataview offers simple ways to sort results. The most simplistic is by some
 property in ascending (asc) or descending (desc) order:
 
 ```sql
@@ -292,7 +292,7 @@ SORT
   Year asc
 ```
 
-This should serve well for most use-cases. More complex sorting mechanisms 
+This should serve well for most use-cases. More complex sorting mechanisms
 will added here at a later time.
 
 [Back to Contents](#table-of-contents)
@@ -308,7 +308,7 @@ GROUP BY
 Group by category in a table:
 
 ```sql
-TABLE 
+TABLE
   rows.file.name as "File"
 WHERE
   category
@@ -327,9 +327,9 @@ GROUP BY
   category
 ```
 
-NOTE: When using `GROUP BY`, the structure of the results changes. Instead of 
-directly accessing `file.name`, you must use the `rows` property to access the 
-file properties within each group. This is because results are now grouped 
+NOTE: When using `GROUP BY`, the structure of the results changes. Instead of
+directly accessing `file.name`, you must use the `rows` property to access the
+file properties within each group. This is because results are now grouped
 into rows based on the `GROUP BY` field.
 
 [Back to Contents](#table-of-contents)
@@ -386,7 +386,7 @@ LIMIT
 ## Extras
 
 ### Bool property to custom display value
-Dataview provides options on how to display various forms of data. For 
+Dataview provides options on how to display various forms of data. For
 example, Booleans can be displayed as Yes/No instead of True/False:
 
 ```js
@@ -401,6 +401,21 @@ TABLE
   choice(read, "Yes", "No") as "Read",
 FROM
   "Books"
+```
+
+### Finding notes with outlinks to other notes
+Should you want to list all notes referencing another note with using an outlink,
+
+```sql
+contains(file.outlinks, [[Note title]])
+```
+
+Example
+
+```sql
+LIST
+WHERE
+	contains(file.outlinks, [[My books]])
 ```
 
 [Back to Contents](#table-of-contents)
