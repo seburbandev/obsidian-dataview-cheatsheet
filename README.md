@@ -403,8 +403,8 @@ FROM
   "Books"
 ```
 
-### Finding notes with outlinks to other notes
-Should you want to list all notes referencing another note with using an outlink,
+### Files with outlinks to other files
+Should you want to list all files referencing another file using an outlink, you can use ```contains``` in the WHERE
 
 ```sql
 contains(file.outlinks, [[Note title]])
@@ -417,6 +417,7 @@ LIST
 WHERE
 	contains(file.outlinks, [[My books]])
 ```
+This would list all files which include at least one outlink to [[My books]].
 
 [Back to Contents](#table-of-contents)
 
