@@ -43,6 +43,8 @@ are added or the list of commands is expanded.
 	- [Limit results in query](#limit-results-in-query)
 	- [Extras](#extras)
 		- [Bool property to custom display value](#bool-property-to-custom-display-value)
+		- [Files with outlinks to other files](#files-with-outlinks-to-other-files)
+		- [List overdue tasks](#list-overdue-tasks)
 - [Metadata Reference](#metadata-reference)
 	- [JSON](#json)
 	- [YAML](#yaml)
