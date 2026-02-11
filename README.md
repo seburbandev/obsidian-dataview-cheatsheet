@@ -410,7 +410,7 @@ Should you want to list all files referencing another file using an outlink, you
 contains(file.outlinks, [[Note title]])
 ```
 
-Example
+Example:
 
 ```sql
 LIST
@@ -418,6 +418,31 @@ WHERE
 	contains(file.outlinks, [[My books]])
 ```
 This would list all files which include at least one outlink to [[My books]].
+
+### List overdue tasks
+
+To list all the tasks that are past due, we can use ```due``` in the WHERE clause:
+
+```sql
+due > date(today)
+```
+
+However, this would also include the tasks that have no due date, which is not what we want. To avoid this, we can check on the ```typeof``` due value:
+
+```sql
+typeof(due) = "date"
+````
+
+Example:
+
+```sql
+TASK
+WHERE
+	!completed
+	AND due < date(today)
+	AND typeof(due) = "date"
+```
+
 
 [Back to Contents](#table-of-contents)
 
