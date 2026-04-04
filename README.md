@@ -1,6 +1,7 @@
 # Summary
 
 [![Trajecta](https://img.shields.io/badge/Sponsored%20by-Trajecta-blue?style=flat-square)](https://trajecta.app)
+[![All Renewals](https://img.shields.io/badge/Sponsored%20by-AllRenewals-darkgreen?style=flat-square)](https://allrenewals.com)
 
 This cheatsheet provides a handy reference guide for writing queries using 
 **Dataview Query Language** (**DQL**) in the [dataview][dataview] plugin for 
